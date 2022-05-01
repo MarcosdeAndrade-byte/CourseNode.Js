@@ -20,6 +20,12 @@ const server = http.createServer((req,res) => {
     console.log("Requisições feitas");
 });
 
+//Quando nos referimos ao localhost estamos na verdade utilizando o nosso
+//próprio computador como um host para fazer requisições e desenvolver sites
 server.listen(3000,'localhost',() => {
+    //Port Numbers são utilizadas para se comunicar com o nosso servidor
+    //muitos aplicativos utilizam as portas para se comunicar e devemos 
+    //ficar atentos para não tentar estabelecer uma conexão com uma porta
+    //que está sendo utilizada (Padrão da porta para desenvolvimento: 3000)
     console.log('Ouvindo as requisições na porta 3000');
 });
