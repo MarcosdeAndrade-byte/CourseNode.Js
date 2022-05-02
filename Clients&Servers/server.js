@@ -9,15 +9,22 @@ const server = http.createServer((req,res) => {
     //define o tipo de conteúdo cabeçalho 
     res.setHeader('Content-Type','text/html');
     
-    //Enviar um arquivo html
-    fs.readFile('f:/WS-VSC/CourseNodeJs/Clients&Servers/views/index.html',(err,data) => {
-        if(err){
-            console.log(err);
-            res.end();
-        }else{
-            //res.write(data);
-            res.end(data);
-        }
+    //Enviar um arquivo html(O usuário escolhe a página que quer acessar e selecionamos a rota através do switch)
+    let path = 'F:/WS-VSC/CourseNodeJs/Clients&Servers/views/';
+    switch(req.url){
+        case '/' : path += 'index.html'; break;
+        case '/about' : path += 'about.html'; break;
+        default: path += '404.html'; break;
+    }
+
+    //Se ao ler o Html der erro,imprimimos um erro. Se der certo retornamos um arquivo html
+    fs.readFile(path,(err,data)=>{
+       if(err){
+          console.log(err);
+          res.end();
+       }else{
+          res.end(data);
+       }
     });
 });
 
