@@ -12,9 +12,17 @@ const server = http.createServer((req,res) => {
     //Enviar um arquivo html(O usuário escolhe a página que quer acessar e selecionamos a rota através do switch)
     let path = 'F:/WS-VSC/CourseNodeJs/Clients&Servers/views/';
     switch(req.url){
-        case '/' : path += 'index.html'; break;
-        case '/about' : path += 'about.html'; break;
-        default: path += '404.html'; break;
+        case '/' : path += 'index.html';
+        res.statusCode = 200;
+        break;
+        
+        case '/about' : path += 'about.html';
+        res.statusCode = 200;
+        break;
+
+        default: path += '404.html';
+        res.statusCode = 400;
+        break;
     }
 
     //Se ao ler o Html der erro,imprimimos um erro. Se der certo retornamos um arquivo html
