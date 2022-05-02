@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 
 //O objeto req vem carregado de informações sobre as requisições e podemos utilizar isso
 const server = http.createServer((req,res) => {
@@ -7,11 +8,17 @@ const server = http.createServer((req,res) => {
 
     //define o tipo de conteúdo cabeçalho 
     res.setHeader('Content-Type','text/html');
-    //Através do método write podemos retornar fragmentos de html,json,css e etc...(Existem maneiras melhores)
-    res.write('<p>Ola,ninjas</p>');
-    res.write('<h3>Ola novamente,ninjas</h3>');
-    //Avisamos para o navegador que terminamos de escrever a resposta
-    res.end();
+    
+    //Enviar um arquivo html
+    fs.readFile('f:/WS-VSC/CourseNodeJs/Clients&Servers/views/index.html',(err,data) => {
+        if(err){
+            console.log(err);
+            res.end();
+        }else{
+            //res.write(data);
+            res.end(data);
+        }
+    });
 });
 
 server.listen(3000,'localhost',() => {
