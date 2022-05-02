@@ -9,18 +9,27 @@ const server = http.createServer((req,res) => {
     //define o tipo de conteúdo cabeçalho 
     res.setHeader('Content-Type','text/html');
     
-    //Enviar um arquivo html(O usuário escolhe a página que quer acessar e selecionamos a rota através do switch)
+    //Podemos setar um link para apontar para outro link.Isso é bastante eficiente e faz com 
+    //que não tenhamos que perder tempo mudando cada link da nossa página
     let path = 'F:/WS-VSC/CourseNodeJs/Clients&Servers/views/';
     switch(req.url){
-        case '/' : path += 'index.html';
+        case '/' : 
+        path += 'index.html';
         res.statusCode = 200;
         break;
-        
+
         case '/about' : path += 'about.html';
         res.statusCode = 200;
         break;
 
-        default: path += '404.html';
+        case '/about-me' : //<--- Estamos mudando de /about-me para /about
+        res.statusCode = 301;//<--- Mudamos o status code
+        res.setHeader('Location','/about'); //<--- Setamos a rota
+        res.end();//<--- Damos fim a nossa resposta
+        break;
+
+        default: 
+        path += '404.html';
         res.statusCode = 400;
         break;
     }
