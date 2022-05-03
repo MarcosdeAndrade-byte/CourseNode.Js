@@ -18,4 +18,14 @@ app.get('/about',(re,res)=>{
     res.sendFile('F:/WS-VSC/CourseNodeJs/Clients&Servers/views/about.html');
 });
 
+//Redirecionamento 
+app.get('/about-us',(req,res)=> {
+    //respondemos com outra página html
+    res.redirect('/about');
+});
 
+//A função use é utilizada para criar middleware e acionar funções de middleware no Express
+//Se nenhuma das requisições funcionar retornamos um erro 404
+app.use((req,res)=>{
+    res.status(404).sendFile('F:/WS-VSC/CourseNodeJs/Clients&Servers/views/404.html');
+});
