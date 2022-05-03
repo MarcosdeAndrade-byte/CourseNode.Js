@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MarcosdeAndrade-byte/CourseNode.Js/issues"
   },
-  "homepage": "https://github.com/MarcosdeAndrade-byte/CourseNode.Js#readme"
+  "homepage": "https://github.com/MarcosdeAndrade-byte/CourseNode.Js#readme",
+  "devDependencies": {
+    "express": "^4.18.1"
+  }
 }
