@@ -17,9 +17,9 @@ app.listen(3000);
 app.get('/',(req,res)=>{
     //Criamos blogs falsos apenas para testar o EJS e sua capacidade de executar comandos JS  
     const blogs = [
-    {title: 'Testando Blog1', snippet: 'Testando'},
-    {title: 'Testando Blog2', snippet: 'Testando'},
-    {title: 'Testando Blog3', snippet: 'Testando'}
+    {title: 'Testando dados do back-end', snippet: 'Deu certooooo!'},
+    {title: 'devBlog.com', snippet: 'Últimas notícias sobre tecnologia'},
+    {title: 'devBlog.com', snippet: 'Últimas notícias sobre tecnologia'}
     ];
 
     res.render('index',{title:'Home',blogs});
