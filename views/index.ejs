@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Para injetar dados do servidor na nossa aplicação utilizamos  -->
-    <title> Node.js curso <%= title %></title>
-</head>
+    <%- include('./partials/head') %>
 <body>
-    <h1>Blog do Marcos</h1>
-    <h2>Desenvolvendo aplicativo</h2>
-    <nav>
-        <li><a href="/">Blogs</a></li>
-        <li><a href="./about">About page</a></li>
-        <li><a href="/blogs/create">New create</a></li>
-    </nav>
+
+    <%- include('./partials/nav.ejs') %>
 
     <!-- Podemos utilizar loops nos arquivos EJS/Dessa forma podemos imprimir os dados vindos do servidor -->
     <% if (blogs.length > 0) { %>
@@ -24,5 +13,8 @@
         <%})%>
     <%}%>
 
+    <!--Podemos substituir partes do html e colocar em um único arquivo-->
+    <!--Para incluir as partes no arquivo principal utilizamos a função include-->
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

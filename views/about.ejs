@@ -7,13 +7,8 @@
     <title>Node <%= title %> </title>
 </head>
 <body>
-    <h1>Blog do Marcos</h1>
-    <h2>Desenvolvendo aplicativo</h2>
-    <nav>
-        <li><a href="/">Blogs</a></li>
-        <li><a href="./about">About page</a></li>
-        <li><a href="/blogs/create">New create</a></li>
-    </nav>
+   
+    <%- include('./partials/nav.ejs') %>
 
     <div class="about Content">
         <h6>
@@ -28,5 +23,7 @@ Etiam ullamcorper augue vulputate nisl eleifend, bibendum posuere risus sodales.
 Nullam at lacus nibh. Curabitur vehicula varius lacinia. Duis non nunc non ipsum lobortis euismod sit amet quis justo. Cras eget lectus non enim sollicitudin auctor ac euismod ante. Curabitur vestibulum nisi mi, at iaculis urna gravida eu. Donec viverra consequat tempor. Suspendisse sed purus sollicitudin, finibus augue sit amet, aliquam lacus. Nunc eu sem eu neque convallis rutrum. Integer eu cursus sapien. Sed in finibus mauris, placerat venenatis nisl. Integer sed finibus sem. Aliquam bibendum nisl dolor, at accumsan metus auctor nec.
         </h6>
     </div>
+
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>
