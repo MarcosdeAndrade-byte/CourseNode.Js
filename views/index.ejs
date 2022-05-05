@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Node.js curso</title>
+    <!--Para injetar dados do servidor na nossa aplicação utilizamos  -->
+    <title> Node.js curso <%= title %></title>
 </head>
 <body>
-
     <h1>Blog do Marcos</h1>
     <h2>Desenvolvendo aplicativo</h2>
     <nav>
@@ -16,9 +16,13 @@
         <li><a href="/blogs/create">New create</a></li>
     </nav>
 
-    <div class="blogs content">
-        <h2>All Blogs</h2>
-    </div>
+    <!-- Podemos utilizar loops nos arquivos EJS/Dessa forma podemos imprimir os dados vindos do servidor -->
+    <% if (blogs.length > 0) { %>
+        <% blogs.forEach(blogs => { %>
+            <h3 class="title"><%= blogs.title %></h3>
+            <p class="snippet"><%= blogs.snippet %></p>
+        <%})%>
+    <%}%>
 
 </body>
 </html>
